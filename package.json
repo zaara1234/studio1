@@ -16,7 +16,9 @@
     "url": "https://github.com/ScriptEdcurriculum/studio1/issues"
   },
   "homepage": "https://github.com/ScriptEdcurriculum/studio1#readme",
-  "dependencies": {},
+  "dependencies": {
+    "http-server": "^0.11.1"
+  },
   "devDependencies": {
     "eslint": "^5.6.0",
     "eslint-config-standard": "^12.0.0",
