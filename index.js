@@ -4,7 +4,7 @@ var database = firebase.database();
 var databaseRef = database.ref("/");
 
 
-$("#makeQues").click(function(){
+$("#makeQuestion").click(function(){
 databaseRef.push({
         "Topic": "Snowy or sunny", 
         "Answers": ["Sunny","blizzard"] 
@@ -16,3 +16,19 @@ databaseRef.once("value").then(function(snapshot) {
 console.log(directory);
 });
 });
+
+
+$("#askquestions").click(function(){
+var questions= $("#questioninput").val();
+  console.log(questions)
+  databaseRef.push({
+          "Topic": questions, 
+          "Answers": [] 
+    });
+    // Read the data from the database and take a snapshot of that data.
+  databaseRef.once("value").then(function(snapshot) {
+   // Use .val() to get the data from the snapshot.
+   const directory = snapshot.val();
+  console.log(directory);
+  });
+  });
