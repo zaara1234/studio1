@@ -32,3 +32,9 @@ var questions= $("#questioninput").val();
   console.log(directory);
   });
   });
+ref.once("#comments").then(function(snapshot) {
+  snapshot.forEach(function(comments) {
+      console.log(comments.val());
+  });
+});
+  
