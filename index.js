@@ -32,16 +32,26 @@ databaseRef.once("value").then(function(snapshot) {
     }
     
      string += "<div id = \"" + comments.key + "\"><p>"+(comments.val()["Topic"]) +
-      "</p>" + stringcomments +" <input class = \"commentinput\"><button class= \"makeComment\">Make a comment</button></div>"; 
+      "</p>" + stringcomments +" <input id = \"" + comments.key + 
+      "input\" class = \"commentinput\"><button class= \"makeComment\" onclick=\"updateComment(\"" + comments.key + "\")\">Make a comment</button></div>"; 
   });
   $("#Questions").html(string);
 });
 
-$("button").click(function(){
+
+function updateComment(id){
+  var ref = database.ref("/"+id)
+  ref.once("value").then(function(snapshot) {
+    // Use .val() to get the data from the snapshot.
+    const snapshot = snapshot.val();
+    console.log(snapshot)
+   });
+   
+ 
+}
+$("button.makeComment").click(function(){
   console.log("Clicked")
   var comments= $("commentsinput").val();
-    console.log(comments)
-    console.log($(".makeComment"))
     // databaseRef.push({
     //         "Topic": comments, 
     //         "Answers": [] 
