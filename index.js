@@ -3,16 +3,28 @@
 var database = firebase.database();
 var databaseRef = database.ref("/");
 
-
-$("#makeQues").click(function(){
-databaseRef.push({
-        "Topic": "Snowy or sunny", 
-        "Answers": ["Sunny","blizzard"] 
+$("#askquestions").click(function(){
+var questions= $("#questioninput").val();
+  console.log(questions)
+  databaseRef.push({
+          "Topic": questions, 
+          "Answers": [] 
+    });
+    databaseRef.once("value").then(function(snapshot) {
+      var string = ""
+      snapshot.forEach(function(comments) {
+         string += "<div id = \"" + comments.key + "\"><p>"+(comments.val()["Topic"])+ "</p> </div>";
+          
+      });
+      $("#Questions").html(string);
+    });
   });
-  // Read the data from the database and take a snapshot of that data.
 databaseRef.once("value").then(function(snapshot) {
- // Use .val() to get the data from the snapshot.
- const directory = snapshot.val();
-console.log(directory);
+  var string = ""
+  snapshot.forEach(function(comments) {
+     string += "<div id = \"" + comments.key + "\"><p>"+(comments.val()["Topic"])+ "</p> </div>";
+      
+  });
+  $("#Questions").html(string);
 });
-});
+  
