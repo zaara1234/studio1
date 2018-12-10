@@ -19,12 +19,29 @@ var questions= $("#questioninput").val();
       $("#Questions").html(string);
     });
   });
+
 databaseRef.once("value").then(function(snapshot) {
   var string = ""
   snapshot.forEach(function(comments) {
-     string += "<div id = \"" + comments.key + "\"><p>"+(comments.val()["Topic"])+ "</p> </div>";
-      
+     string += "<div id = \"" + comments.key + "\"><p>"+(comments.val()["Topic"])+ "</p> <input class = \"commentinput\"><button class= \"makeComment\">Make a comment</button></div>"; 
   });
   $("#Questions").html(string);
 });
+
+$("button").click(function(){
+  console.log("Clicked")
+  var comments= $("commentsinput").val();
+    console.log(comments)
+    console.log($(".makeComment"))
+    // databaseRef.push({
+    //         "Topic": comments, 
+    //         "Answers": [] 
+    //   });
+    //   // Read the data from the database and take a snapshot of that data.
+    // databaseRef.once("value").then(function(snapshot) {
+    //  // Use .val() to get the data from the snapshot.
+    //  const directory = snapshot.val();
+    // console.log(directory);
+    // });
+    });
   
