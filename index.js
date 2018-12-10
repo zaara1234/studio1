@@ -3,21 +3,6 @@
 var database = firebase.database();
 var databaseRef = database.ref("/");
 
-
-$("#makeQuestion").click(function(){
-databaseRef.push({
-        "Topic": "Snowy or sunny", 
-        "Answers": ["Sunny","blizzard"] 
-  });
-  // Read the data from the database and take a snapshot of that data.
-databaseRef.once("value").then(function(snapshot) {
- // Use .val() to get the data from the snapshot.
- const directory = snapshot.val();
-console.log(directory);
-});
-});
-
-
 $("#askquestions").click(function(){
 var questions= $("#questioninput").val();
   console.log(questions)
@@ -25,16 +10,21 @@ var questions= $("#questioninput").val();
           "Topic": questions, 
           "Answers": [] 
     });
-    // Read the data from the database and take a snapshot of that data.
-  databaseRef.once("value").then(function(snapshot) {
-   // Use .val() to get the data from the snapshot.
-   const directory = snapshot.val();
-  console.log(directory);
+    databaseRef.once("value").then(function(snapshot) {
+      var string = ""
+      snapshot.forEach(function(comments) {
+         string += "<div id = \"" + comments.key + "\"><p>"+(comments.val()["Topic"])+ "</p> </div>";
+          
+      });
+      $("#Questions").html(string);
+    });
   });
-  });
-ref.once("#comments").then(function(snapshot) {
+databaseRef.once("value").then(function(snapshot) {
+  var string = ""
   snapshot.forEach(function(comments) {
-      console.log(comments.val());
+     string += "<div id = \"" + comments.key + "\"><p>"+(comments.val()["Topic"])+ "</p> </div>";
+      
   });
+  $("#Questions").html(string);
 });
   
