@@ -23,7 +23,16 @@ var questions= $("#questioninput").val();
 databaseRef.once("value").then(function(snapshot) {
   var string = ""
   snapshot.forEach(function(comments) {
-     string += "<div id = \"" + comments.key + "\"><p>"+(comments.val()["Topic"])+ "</p> <input class = \"commentinput\"><button class= \"makeComment\">Make a comment</button></div>"; 
+    var stringcomments = ""
+    var array = comments.val()["Answers"] 
+    if (array) {
+      array.forEach(function(e){
+        stringcomments += "<p>"+ e + "</p>"
+      }) 
+    }
+    
+     string += "<div id = \"" + comments.key + "\"><p>"+(comments.val()["Topic"]) +
+      "</p>" + stringcomments +" <input class = \"commentinput\"><button class= \"makeComment\">Make a comment</button></div>"; 
   });
   $("#Questions").html(string);
 });
