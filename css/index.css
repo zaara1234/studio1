@@ -1,5 +1,19 @@
 /* Write your CSS here */
+body{
+    background-image: url('https://media.giphy.com/media/c7GjiBC5iG1QQ/giphy.gif');
+    opacity: 50;
+    background-size: cover;
+}
 #logo1 {
     width:100%;
 
 }
+.PastelRed{color:#fea3aa;}
+.PastelOrange{color:#f8b88b;}
+.PastelYellow{color:#faf884;}
+.PastelGreen{color:#baed91;}
+.PastelBlue{color:#b2cefe;}
+.PastelPurple{color: #f2a2e8;}
+background
+/* pink	 fea3aa 	orange f8b88b 	yellow faf884 	 
+/*  green  baed91 	blue b2cefe 	purple f2a2e8 
