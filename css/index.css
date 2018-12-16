@@ -1,19 +1,99 @@
 /* Write your CSS here */
-body{
-    background-image: url('https://media.giphy.com/media/c7GjiBC5iG1QQ/giphy.gif');
+/* body{
+    background-image: url('');
     opacity: 50;
     background-size: cover;
+} */
+
+body{
+    overflow-x:hidden;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:darkslategray;
 }
-#logo1 {
+.navbar{
+    text-transform: uppercase;
+    background-color: #f8b88b;
+}
+.footer .row{
+    background-color:#fea3aa;
+}
+.home-inner{
+    background-image: url('https://media.giphy.com/media/c7GjiBC5iG1QQ/giphy.gif');
+}
+.navbar-brand img {
+    height:5rem;
+}
+.caption{
     width:100%;
+    max-width:100%;
+    position:absolute;
+    top:40%;
+    z-index:1;
+}
+.caption h3{
+    color:white;
+    font-size:2.4rem;
+    text-transform: uppercase;
+    padding-bottom: 2rem;
+}
+h3.heading{
+    text-align: center;
+    font-size:1.9rem;
+    text-transform: uppercase;
+    margin-bottom: 1.9rem;
+}
+.btn{
+    border-width:medium;
+    border-radius: 0;
+    text-transform: uppercase;
+    padding: .5rem 1.1rem;
+    font-size: .9rem;
 
 }
+
+#Area{
+   height: 500px;
+}
+#Media{
+    width:400px;
+    height: 200px;
+}
+.landing {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: table;
+  background: #E9ECEF;
+  z-index: -1;
+}
+.home-wrap {
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.home-inner {
+  position: fixed;
+  display: table;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  will-change: transform;
+}
+
+
 .PastelRed{color:#fea3aa;}
 .PastelOrange{color:#f8b88b;}
 .PastelYellow{color:#faf884;}
 .PastelGreen{color:#baed91;}
 .PastelBlue{color:#b2cefe;}
 .PastelPurple{color: #f2a2e8;}
-background
 /* pink	 fea3aa 	orange f8b88b 	yellow faf884 	 
-/*  green  baed91 	blue b2cefe 	purple f2a2e8 
+/*  green  baed91 	blue b2cefe 	purple f2a2e8 */
